@@ -22,10 +22,13 @@ async function fetchJson<TReturn>(url: string): Promise<TReturn> {
 export const responseMapper = (payload: RootObject): GliphyResponse => {
   return {
     ...payload,
-    images: payload.data.map(({ images: { original }, title }: Datum) => ({
-      url: original.url,
-      title,
-    })),
+    images: payload.data.map(
+      ({ images: { original, fixed_width }, title }: Datum) => ({
+        url: fixed_width.url,
+        detailUrl: original.url,
+        title,
+      }),
+    ),
   }
 }
 

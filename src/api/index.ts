@@ -2,6 +2,7 @@ import { Pagination } from './gliphy-types'
 
 export type ImageItem = {
   url: string
+  detailUrl: string
   title: string
 }
 

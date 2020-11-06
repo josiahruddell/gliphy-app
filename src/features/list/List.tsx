@@ -38,8 +38,8 @@ class List extends React.Component<Props & ConnectProps> {
     const { results } = this.props
     return (
       <div className={styles.component}>
-        {results.map((x) => (
-          <ListItem {...x} />
+        {results.map((x, index) => (
+          <ListItem {...x} key={`image-${index}`} />
         ))}
       </div>
     )
